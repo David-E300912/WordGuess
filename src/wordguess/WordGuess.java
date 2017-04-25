@@ -19,7 +19,7 @@ import java.util.Scanner;
 		String letterGuess, wordGuess = "";
 		int numGuesses = 0;
                 int points = 100;
-                int S = numGuesses;
+                int S = 0;
 		Scanner input = new Scanner(System.in);
 		
 		/* begin game */
@@ -37,6 +37,7 @@ import java.util.Scanner;
 		
 			/* increment number of guesses */
 			numGuesses += 1;
+                        S += 1;
 			
 			/* player correctly guessed a letter--extract string in wordSoFar up to the letter 
 			 * guessed and then append guessed letter to that string. Next, extract rest of 
@@ -59,7 +60,7 @@ import java.util.Scanner;
 			wordGuess = input.nextLine();
 			wordGuess = wordGuess.toUpperCase();
 		}
-		if (wordGuess.equals(SECRET_WORD) && wordSoFar.equals(SECRET_WORD) && S < 15) {
+		if (wordGuess.equals(SECRET_WORD) || wordSoFar.equals(SECRET_WORD) && S < 15) {
 			System.out.println("You won!");		
 		} else {
 			System.out.println("Sorry. You lose.");
